@@ -1,0 +1,9 @@
+management.metrics.export.datadog:
+    apiKey: YOURKEY
+
+    # You will probably want disable Datadog publishing in a local development profile.
+    enabled: false
+
+    # The interval at which metrics are sent to Datadog. The default is 1 minute.
+    step: 1m
+ 

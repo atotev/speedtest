@@ -9,5 +9,4 @@ public class SpeedTestStarterServiceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpeedTestStarterServiceApplication.class, args);
 	}
-
 }
