@@ -2,14 +2,16 @@ package com.speedtest.svc.starter.model;
 
 import java.util.List;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 
 @Getter
-@RequiredArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 public class SpeedTestDescriptor {
 
-	private final String testKey;
-	private final Long testEndTime;
-	private final List<TrafficEndpointForTest> endpoints;
+	private String testKey;
+	private Long testEndTime;
+	private List<TrafficEndpointForTest> endpoints;
 }

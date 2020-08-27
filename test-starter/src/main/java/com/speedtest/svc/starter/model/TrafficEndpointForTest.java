@@ -1,12 +1,14 @@
 package com.speedtest.svc.starter.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 
 @Getter
-@RequiredArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 public class TrafficEndpointForTest {
 
-	private final String url;
-	private final String token;
+	private String url;
+	private String token;
 }

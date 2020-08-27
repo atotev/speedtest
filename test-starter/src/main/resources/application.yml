@@ -1,8 +1,17 @@
 management.metrics.export.datadog:
-    apiKey: YOURKEY
+    apiKey: ${DATADOG_API_KEY:datadogkey}
 
     # You will probably want disable Datadog publishing in a local development profile.
     enabled: false
 
     # The interval at which metrics are sent to Datadog. The default is 1 minute.
     step: 1m
+hash.secret: ${HASH_SECRET:hashsecret}
+test.max.duration.sec: 900
+traffic.endpoint.selector.url: https://test123.free.beeceptor.com/my/api/path
+traffic.endpoint.selector.key: ${FLEET_SELECT_KEY:fleetkey}
+traffic.endpoint.selector.secret: ${FLEET_SELECT_SECRET:fleetsecret}
+http.client:
+    connect.timeout.ms: 30000
+    request.timeout.ms: 30000
+    socket.timeout.ms: 60000
