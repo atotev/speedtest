@@ -10,6 +10,7 @@ This service handles client requests for initiating a speed test by performing t
 * generates a signature token for each (endpoint, timestamp, testkey)
 * returns a the testkey, the test end timestamp, and the endpoints with their respective tokens
 * the client can start issuing request to the traffic endpoints which are accessibe for the duration of the tests (validation based on token)
+
 Aspects to flesh out / consider
 * p3 client credentials authN to traffic endpoint selector service
 * p2 distributed tracing
