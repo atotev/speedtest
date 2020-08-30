@@ -13,6 +13,8 @@ import org.springframework.web.client.RestTemplate;
 import com.speedtest.svc.starter.fleet.spi.TrafficEndpointSelectResult;
 import com.speedtest.svc.starter.fleet.spi.TrafficEndpointSelector;
 
+import io.micrometer.core.annotation.Timed;
+
 @Service
 public class TrafficEndpointSelectorImpl implements TrafficEndpointSelector {
 	
@@ -30,10 +32,12 @@ public class TrafficEndpointSelectorImpl implements TrafficEndpointSelector {
 	
 	@PostConstruct
 	private void addBasicAuthInterceptor() {
+
 		restTemplate.getInterceptors().add(new BasicAuthenticationInterceptor(selectorSvcKey, selectorSvcSecret));
 	}
 
 	@Override
+	@Timed("speedtest.endpoint.selection")
 	public TrafficEndpointSelectResult selectAvailableEndpoints(String remoteAddress) {
 		
 		return restTemplate.getForObject(selectorSvcUri, TrafficEndpointSelectResult.class);

@@ -1,14 +1,18 @@
 management.metrics.export.datadog:
     apiKey: ${DATADOG_API_KEY:datadogkey}
+    uri: https://api.datadoghq.eu
 
     # You will probably want disable Datadog publishing in a local development profile.
-    enabled: false
+    enabled: true
+    
+    host-tag: andreyzeph
 
     # The interval at which metrics are sent to Datadog. The default is 1 minute.
-    step: 1m
+    step: 10s
+logging.level.io.micrometer.datadog: DEBUG
 hash.secret: ${HASH_SECRET:hashsecret}
-test.max.duration.sec: 900
-traffic.endpoint.selector.url: https://test123.free.beeceptor.com/my/api/path
+test.max.duration.ms: 900000
+traffic.endpoint.selector.url: https://aaaa1234.free.beeceptor.com
 traffic.endpoint.selector.key: ${FLEET_SELECT_KEY:fleetkey}
 traffic.endpoint.selector.secret: ${FLEET_SELECT_SECRET:fleetsecret}
 http.client:

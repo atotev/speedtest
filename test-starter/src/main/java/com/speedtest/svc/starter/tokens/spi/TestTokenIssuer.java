@@ -1,11 +1,10 @@
 package com.speedtest.svc.starter.tokens.spi;
 
 import java.util.List;
-import java.util.Set;
 
-import com.speedtest.svc.starter.model.TrafficEndpointForTest;
+import com.speedtest.svc.starter.model.SpeedTestDescriptor;
 
 public interface TestTokenIssuer {
 
-	List<TrafficEndpointForTest> issueEndpointTokens(String testKey, long testEndTimestamp, Set<String> endpoints);
+	SpeedTestDescriptor issueEndpointTokens(List<String> endpoints);
 }

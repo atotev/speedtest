@@ -8,6 +8,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
+import io.micrometer.core.aop.TimedAspect;
+import io.micrometer.core.instrument.MeterRegistry;
+
 @SpringBootApplication
 public class SpeedTestStarterServiceApplication {
 
@@ -18,6 +21,12 @@ public class SpeedTestStarterServiceApplication {
 	public RestTemplate restTemplate() {
 
 		return new RestTemplate(new HttpComponentsClientHttpRequestFactory(httpClient));
+	}
+	
+	@Bean
+	public TimedAspect timedAspect(MeterRegistry registry) {
+
+		return new TimedAspect(registry);
 	}
 	
 	public static void main(String[] args) {
