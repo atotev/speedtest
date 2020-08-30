@@ -25,4 +25,6 @@ Aspects to flesh out / consider
 * p1 integration testing
 * p1 docker-compose with mock endpoint selector service for demo
 * p1 csrf, cors
+* P1 producer contract verification
 
+- screenshots: datadog, jacoco-lombok
