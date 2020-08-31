@@ -30,7 +30,7 @@ import static java.util.Arrays.asList;
 		@ContextConfiguration(classes = HttpClientConfig.class),
 		@ContextConfiguration()
 })
-public class TrafficEndpointSelectorIT {
+public class TrafficEndpointSelectorTest {
 	
 	@Autowired
 	private TrafficEndpointSelectorImpl underTest;

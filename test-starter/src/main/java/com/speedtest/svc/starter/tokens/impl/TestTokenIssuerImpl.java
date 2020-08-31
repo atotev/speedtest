@@ -16,6 +16,7 @@ import com.speedtest.svc.starter.model.TrafficEndpointForTest;
 import com.speedtest.svc.starter.tokens.spi.TestTokenIssuer;
 
 import lombok.val;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * The default implementation of @code {@link TestTokenIssuer}
@@ -30,6 +31,7 @@ import lombok.val;
  *
  */
 @Service
+@Slf4j
 public class TestTokenIssuerImpl implements TestTokenIssuer {
 	
 	@Autowired
@@ -49,6 +51,8 @@ public class TestTokenIssuerImpl implements TestTokenIssuer {
 		val tokens = endpoints.stream()
 				.map(e -> new TrafficEndpointForTest(e, hash(testKey, testEndTimestamp, e)))
 				.collect(Collectors.toList());
+		log.debug("Issuing tokens for: {} endpoints, test {}, expiration {}",
+				tokens.size(), testKey, testEndTimestamp);
 		return new SpeedTestDescriptor(testKey, testEndTimestamp, tokens);
 	}
 	

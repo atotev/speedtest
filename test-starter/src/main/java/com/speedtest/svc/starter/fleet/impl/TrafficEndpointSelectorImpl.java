@@ -14,6 +14,7 @@ import com.speedtest.svc.starter.fleet.spi.TrafficEndpointSelectResult;
 import com.speedtest.svc.starter.fleet.spi.TrafficEndpointSelector;
 
 import io.micrometer.core.annotation.Timed;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * A client to a REST implementation of TrafficEndpointSelector
@@ -22,6 +23,7 @@ import io.micrometer.core.annotation.Timed;
  *
  */
 @Service
+@Slf4j
 public class TrafficEndpointSelectorImpl implements TrafficEndpointSelector {
 	
 	@Value("${traffic.endpoint.selector.url}")
@@ -46,6 +48,7 @@ public class TrafficEndpointSelectorImpl implements TrafficEndpointSelector {
 	@Timed("speedtest.endpoint.selection")
 	public TrafficEndpointSelectResult selectAvailableEndpoints(String remoteAddress) {
 		
+		log.debug("Calling endpoint selection service for client: {}", remoteAddress);
 		return restTemplate.getForObject(selectorSvcUri, TrafficEndpointSelectResult.class);
 	}
 }

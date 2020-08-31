@@ -15,6 +15,7 @@ import com.speedtest.svc.starter.tokens.spi.TestTokenIssuer;
 
 import io.micrometer.core.annotation.Timed;
 import lombok.val;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Implementation of the equivalent of api.fast.com service
@@ -25,6 +26,7 @@ import lombok.val;
  *
  */
 @RestController
+@Slf4j
 public class SpeedTestStarterController {
 	
 	@Autowired
@@ -37,7 +39,9 @@ public class SpeedTestStarterController {
 	@Timed("speedtests.initialization")
 	public SpeedTestDescriptor beginSpeedTest(HttpServletRequest request) {
 		
-		val endpoints = trafficEndpointSelector.selectAvailableEndpoints(request.getRemoteAddr());
+		val remoteAddr = request.getRemoteAddr();
+		log.debug("Requested new test from address: {}", remoteAddr);
+		val endpoints = trafficEndpointSelector.selectAvailableEndpoints(remoteAddr);
 		return tokenIssuer.issueEndpointTokens(endpoints.getUrls());
 	}
 }

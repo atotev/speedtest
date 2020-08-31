@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import lombok.val;
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * Shared HttpClient configuration.
  * Allows for configuring HTTP connection settings, pooling, etc
@@ -15,6 +18,7 @@ import org.springframework.context.annotation.Configuration;
  *
  */
 @Configuration
+@Slf4j
 public class HttpClientConfig {
 	
 	@Value("${http.client.connect.timeout.ms}")
@@ -28,7 +32,9 @@ public class HttpClientConfig {
 	
     @Bean
     public CloseableHttpClient httpClient() {
-        RequestConfig requestConfig = RequestConfig.custom()
+
+    	log.debug("Creating HTTP client");
+        val requestConfig = RequestConfig.custom()
                 .setConnectionRequestTimeout(connectTimeoutMs)
                 .setConnectTimeout(requestTimeoutMs)
                 .setSocketTimeout(socketTimeoutMs).build();
