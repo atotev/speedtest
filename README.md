@@ -30,10 +30,15 @@ In a new console window, run **test-starter**
 ```
 # first, test out the stub
 curl -H "Authorization: Basic ZmxlZXRrZXk6ZmxlZXRzZWNyZXQ=" localhost:8081
+# >>> {"urls":["https://a"]}
 cd ../test-starter
-mvn clean test spring-boot:run
+mvn clean install spring-boot:run
+```
+In a new console window, call **test-starter**
+```
 # finally, test out the service
 curl -X POST localhost:8080/api/v1/test
+# >>> {"testKey":"5789dad3-e460-4a46-8515-ed3a28a1a341","testEndTime":1598840695171,"endpoints":[{"url":"https://a","token":"EDBbip4RG-kZ2gBmxtn5SIwl348A4UtbOcf5D91Wt3c"}]}
 ```
 
 ### Metrics / operational details
