@@ -42,10 +42,10 @@ curl -X POST localhost:8080/api/v1/test
 ```
 
 ### Metrics / operational details
+![](./docs/screenshot.jpg)
 * Actuator endpoint: `curl localhost:8080/actuator`
 * Generic Java and application specific metrics (e.g. speedtests.initialization, speedtest.endpoint.selection) are emitted via Micrometer to Datadog
 * Test coverage: 82%
-![](./docs/screenshot.jpg)
 
 ### Aspects to further build out / consider
 * Client Credentials authNZ flow to traffic endpoint selector service
@@ -53,7 +53,8 @@ curl -X POST localhost:8080/api/v1/test
 * HTTP client connection pooling
 * Resilience techniques like circuit breaker (resilience4j)
 * API docs endpoint
-* SSL
+* SSL, rate limiting, CORS
+* High Availability
 * Secrets Management
 
 
