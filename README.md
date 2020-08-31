@@ -22,6 +22,7 @@ This is a Spring Boot "contract stub" used for verification on the test-starter 
 Run **endpoints-selector stub**
 ```
 cd endpoint-selector
+mvn clean install -DskipTests
 wget -O stub-runner.jar 'https://search.maven.org/remote_content?g=org.springframework.cloud&a=spring-cloud-contract-stub-runner-boot&v=2.2.4.RELEASE'
 java -jar stub-runner.jar --stubrunner.ids="com.speedtest.svc:endpoint-selector:0.0.1-SNAPSHOT:stubs:8081" --stubrunner.workOffline=true --stubrunner.stubs-mode=local --server.port=8083
 ```
