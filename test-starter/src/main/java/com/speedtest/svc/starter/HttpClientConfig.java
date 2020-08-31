@@ -7,6 +7,13 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * Shared HttpClient configuration.
+ * Allows for configuring HTTP connection settings, pooling, etc
+ * 
+ * @author atotev
+ *
+ */
 @Configuration
 public class HttpClientConfig {
 	

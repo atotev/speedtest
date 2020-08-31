@@ -8,6 +8,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+/**
+ * Response to a speed-test initiation request
+ * containing the key/identifier of the speed test,
+ * the end time (ms past UNIX epoch) and a list of
+ * endpoints with corresponding expiring authorization tokens
+ * 
+ * @author atotev
+ *
+ */
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor

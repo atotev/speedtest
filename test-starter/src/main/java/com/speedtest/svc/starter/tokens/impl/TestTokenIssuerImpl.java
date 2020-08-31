@@ -17,6 +17,18 @@ import com.speedtest.svc.starter.tokens.spi.TestTokenIssuer;
 
 import lombok.val;
 
+/**
+ * The default implementation of @code {@link TestTokenIssuer}
+ * which generates a unique test key, calculates the test end time,
+ * and for each and hashes those values with a symmetric secret for each
+ * traffic allocation end-point.
+ * 
+ * The secret is shared with the traffic end points which they use to verify
+ * the tokens.
+ * 
+ * @author atotev
+ *
+ */
 @Service
 public class TestTokenIssuerImpl implements TestTokenIssuer {
 	

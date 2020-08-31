@@ -16,6 +16,14 @@ import com.speedtest.svc.starter.tokens.spi.TestTokenIssuer;
 import io.micrometer.core.annotation.Timed;
 import lombok.val;
 
+/**
+ * Implementation of the equivalent of api.fast.com service
+ * responsible for initiating a speed test and returning traffic
+ * end points URLs plus expiring tokens allowing the client to perform speed test
+ * 
+ * @author atotev
+ *
+ */
 @RestController
 public class SpeedTestStarterController {
 	

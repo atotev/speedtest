@@ -15,6 +15,12 @@ import com.speedtest.svc.starter.fleet.spi.TrafficEndpointSelector;
 
 import io.micrometer.core.annotation.Timed;
 
+/**
+ * A client to a REST implementation of TrafficEndpointSelector
+ * 
+ * @author atotev
+ *
+ */
 @Service
 public class TrafficEndpointSelectorImpl implements TrafficEndpointSelector {
 	
