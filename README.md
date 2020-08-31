@@ -30,7 +30,7 @@ In a new console window, run **test-starter**
 ```
 # first, test out the stub
 curl -H "Authorization: Basic ZmxlZXRrZXk6ZmxlZXRzZWNyZXQ=" localhost:8081
-cd test-starter
+cd ../test-starter
 mvn clean test spring-boot:run
 # finally, test out the service
 curl -X POST localhost:8080/api/v1/test
